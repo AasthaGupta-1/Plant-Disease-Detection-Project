@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plant Disease Detection</title>
+        <style>
+            #d0{
+                height: 100%;
+            }
+            #d1{
+                height:700px;
+                background-color:rgb(245, 148, 87);
+                background-image:url(Millones\ de\ Imágenes\ PNG\,\ Fondos\ y\ Vectores\ Para\ Descarga\ Gratuita\ _\ Pngtree.jpeg );
+                background-size:contain;
+                font-size:40px;
+                color:rgb(16, 97, 16);
+                text-align:center;
+                text-align:middle;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                border-style: groove;
+                border-color:rgb(16, 97, 16);
+            }
+            #im{
+                position: relative;
+                top:30px;
+                height:100px;
+                width:100px;
+                border-radius:60px;
+                align-self:center;
+            }
+            #head{
+                position:relative;
+                top:150px;
+                left:100px;
+            }
+            #d2{
+                height:150px;
+                background-color: rgb(183, 243, 203);
+                display: flex;
+                border-style: groove;
+                border-color:rgb(16, 97, 16);
+            }
+            #head1{
+                position:relative;
+                top:0px;
+                left:200px;
+                font-size:70px;
+                color:rgb(16, 97, 16);
+            }
+            #im1{   
+                position: relative;
+                top:5px;
+                left:200px;
+                height:90px;
+                width:90px;
+                border-radius:60px;
+                align-self:center;
+                margin-right:50px;
+            }
+            #d3{
+                height:50px;
+                background-color:rgba(54, 100, 36, 0.797);
+            }
+            .link1{
+                text-decoration: none;
+                color:white;
+                font-size:25px;
+                align-items: right;
+            }
+            td{
+                align-items: right;
+            }
+            #head3{
+                color:rgb(16, 97, 16);
+                size:100px;
+                position: relative;
+                top:200px;
+                left:200px;
+                text-decoration:wavy;
+            }
+            #d4{
+                display: flex;
+                border-bottom:5px rgb(2, 29, 2);
+                border-bottom:5px solid rgb(247, 250, 247);
+            }
+            #d41{
+                height:550px;
+                width:60%;
+            }
+            #d42{
+                height:550px;
+                width:40%;
+                background-color: rgba(134, 199, 96, 0.649);
+            }
+            #im2{
+                position:relative;
+                height:300px;
+                width:350px;
+                margin:100px 100px 100px 100px;
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+                
+            }
+            #p1{
+                font-size:25px;
+                color:rgb(8, 79, 55);
+                position:relative;
+                top:130px;
+                left:50px;
+                text-align:center;
+                width:700px;
+            }
+            #d5{
+                height:700px;
+                background-color:rgba(147, 215, 163, 0.456);
+            }
+            #up{
+                height:400px;
+                width:300px;
+                font-size: larger;
+                position:relative;
+                top:100px;
+                left:250px;
+                z-index:4;
+            }
+            #b{
+                height:50px;
+                width:400px;
+                position:relative;
+                top:480px;
+                left:300px;
+                font-size:30px;
+                background-color: rgb(241, 241, 161);
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+            }
+            #b2{
+                height:50px;
+                width:400px;
+                position:relative;
+                top:480px;
+                left:200px;
+                font-size:30px;
+                background-color: rgb(241, 241, 161);
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+            }
+            #p3{
+                position:relative;
+                top:70px;
+                left:700px;
+                color:rgb(46, 100, 46);
+                font-size:40px;
+                font-weight: bolder;
+                word-spacing:5px;
+                white-space:5px;
+            }
+            #d51{
+                position:absolute;
+                top:850px;
+                left:200px;
+                height:300px;
+                width:900px;
+                border-color:rgb(57, 98, 74);
+                border-style: solid;
+                border-width:5px;
+                background-color: rgba(151, 214, 135, 0.721);
+                display:flex;
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+                align-content: center;
+            }
+            #d52{
+                height:100px;
+                width:900px;
+                position:relative;
+                top:430px;
+                left:200px;
+                background-color: antiquewhite;
+                border-color:rgb(57, 98, 74);
+                border-style: solid;
+                border-width:5px;
+                color:brown;
+                font-size: 30px;
+                text-align: center;
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+            }
+            #d6{
+                height:700px;
+                background-color: rgba(172, 235, 158, 0.721);
+                border-top:5px solid rgb(248, 251, 248);
+            }
+            #d61{
+                display: flex;
+            }
+            #head4{
+                font-size:80px;
+                color:rgb(4, 72, 4);
+                position:relative;
+                top:50px;
+                left:400px;
+                text-shadow:5px 2px gray;
+            }
+            #models{
+                position:relative;
+                top:100px;
+                left:100px;
+            }
+            .link2{
+                text-decoration: none;
+                font-size: 50px;
+                color:rgb(8, 34, 19);
+                font-weight: bold;
+                text-shadow:3px 0px rgb(33, 71, 34);
+            }
+            #im4{
+                height:300px;
+                width:400px;
+                margin:100px 100px 100px 100px;
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+                position: relative;
+                top:0px;
+                left:400px;
+            }
+            #d7{
+                height:700px;
+                background-color: rgba(134, 199, 96, 0.649);
+                border-top:5px solid rgb(248, 251, 248);
+            }
+            #d8{
+                height:750px;
+                background-color: rgb(183, 243, 203);
+                border-top:5px solid rgb(248, 251, 248);
+            }
+            #p2{
+                font-size: 30px;
+                position:relative;
+                top:150px;
+                left:50px;
+                width:500px;
+            }
+            #im3{
+                height:500px;
+                width:300px;    
+                position:relative;
+                top:150px;  
+                right:80px;
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+            }
+            .m1{
+                font-size:70px;
+                color:rgb(5, 41, 5);
+                position: relative;
+                top:50px;
+                left:100px;
+            }
+            .pm1{
+                width:38.4%;
+                font-size:20px;
+                color:rgb(6, 60, 6);
+                position: relative;
+                top:50px;
+                left:5%;
+            }
+            #im5{
+                height:400px;
+                width:38.4%;    
+                position:relative;
+                left:15%;
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+                box-shadow:5px 5px 5px 5px rgb(20, 52, 22);
+
+            }
+            #d71{
+                display: flex;
+            }
+            #head5{
+                font-size:80px;
+                color:rgb(4, 72, 4);
+                position:relative;
+                top:10px;
+                left:400px;
+                text-shadow:5px 2px gray;
+            }
+            #d9{
+                height:800px;
+                background-color: rgb(176, 230, 171);
+            }
+            #t2{
+                position: relative;
+                top:100px;
+                font-size:25px;
+                background-color: beige;
+                width:900px;
+            }
+            #cov{
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+    <table border="5" height=100% width=100%>
+    <tr width=100%>
+        <td width=100%>
+            <!-- <div id="d0"> -->
+                <a name="about">
+                    <div id="d2" >
+                        <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cm9zZSUyMGZsb3dlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" id="im1">
+                        <h1 id=head1>Plant Disease Detection</h1>
+                    </div>
+                </a>
+        </td>
+    </tr>
+    <tr width=100%>
+        <td width=100%>
+            <div id="d3">
+                <table border=0 height="100%" width="100%">
+                    <tr height="100%" width="100%" align="right">
+                        <td width="14%"><a href="#about"class="link1">About</a></td>
+                        <td width="18%"><a href="#dd"class="link1">Disease Detection</a></td>
+                        <td width="16%"><a href="#om"class="link1">Other Models</a></td>
+                        <td width="14%"><a href="#data"class="link1">Dataset</a></td>
+                        <td width="16%"><a href="#work"class="link1">How it Works</a></td>
+                        <td width="10%"></td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+    <tr width=100%>
+        <td width=100%>
+            <div id="d4">
+                <div id="d41">
+                    <p id="p1">
+                    Agriculture has become much more than simply a means to feed evergreen population . Hope this approach of
+                    an automated system design to help identify plant diseases by the plants appearance and visual symptoms could 
+                    be of great help.
+                    </p>
+                    <h1 id="head3">"JAI JAWAN JAI KISAN "</h1>
+                </div>
+                <div id="d42">
+                    <img src="https://images.yourstory.com/cs/5/f02aced0d86311e98e0865c1f0fe59a2/indian-farmer-1610471656527.png?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces" id="im2">
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr width=100%>
+        <td width=100%>
+        <a name="dd">
+            <div id="d5">
+                <form action="/predict" method="POST" enctype="multipart/form-data">
+                    <div id="d51">
+                        <!-- <img src="#" height="100%" width="100%" id="cov"> -->
+                        <input type="file" name="file"  id="up">
+                        <!-- <p id="p3">"This project will help farmers to predict the disease in plant to overcome the loss  ."</p> -->    
+                    </div>
+                    <div id="d52">
+                        <!-- CLASS : {{predicted_class}} <br>
+                        CONFIDENCE : {{confidence}} -->
+                        {{ result }}
+                    </div>
+                    <button id="b2" onclick="clear()">CLEAR</button>
+                    <input type="submit" value="Upload" id="b">
+                </form>
+            </div>
+        </a>
+        </td>
+    </tr>
+        <!-- <div id="d1">
+            <img src="image.jfif" id="im">
+            <h1 id=head>Plant Disease Detection</h1>
+        </div> -->
+    <tr width=100%>
+        <td width=100%>
+            <a name="om">
+            <div id="d6">
+                <h1 id="head4">Other Models</h1>
+                <div id="d61">
+                    <ul id="models">
+                        <li><a href="#alex" class="link2">Alexnet</a></li>
+                        <li><a href="#incp" class="link2">InceptionV3</a></li>
+                        <li><a href="#vgg" class="link2">VGG</a></li>
+                        <li><a href="#res" class="link2">CNN</a></li>
+                    </ul>
+                    <img src="https://vitalflux.com/wp-content/uploads/2021/11/VGG16-CNN-Architecture-500x312.png?ezimgfmt=ngcb1/notWebP" id="im4">
+                </div>
+            </div>
+            </a>
+        </td>
+    </tr>
+    <!-- <tr width=100%>
+        <td width=100%>
+            <div id="d7">
+                <a name="alex">
+                <h1 class="m1">Alexnet</h1>
+                <div id="d71">
+                    <p class="pm1">AlexNet was the first convolutional network which used GPU to boost performance. 
+                    <br>
+                    1.      AlexNet architecture consists of 5 convolutional layers, 3 max-pooling layers, 2 normalization layers, 2 fully connected layers, and 1 softmax layer. 
+                    <br>
+                    2.      Each convolutional layer consists of convolutional filters and a nonlinear activation function ReLU. 
+                    <br>
+                    3.      AlexNet overall has 60 million parameters.
+                    <br><br>
+                    <b>Train_loss: 0.1772  ,  Train_accuracy: 0.9469 <br>
+                    Validation_loss: 0.7004  ,  Validation_accuracy: 0.8426<br>
+                    Test_loss: 0.7004 , Test_accuracy: 0.8426
+                    </b>
+                    </p> 
+                    <img src="alexnet.png" id="im5">
+                </div> 
+                </a> 
+            </div>  
+        </td>
+    </tr>
+    <tr width=100%>
+        <td width=100%>
+            <div id="d7">
+                <a name="incp">
+                    <h1 class="m1">Inception V3</h1>
+                    <div id="d71">
+                        <p class="pm1">The inception v3 model was released in the year 2015, it has a total of 42 layers and a lower error rate than its predecessors. 
+                        <br>
+                        The major modifications done on the Inception V3 model are
+                        <br>
+                        1 .Factorization into Smaller Convolutions<br>
+                        2 .Spatial Factorization into Asymmetric Convolutions<br>
+                        3 .Utility of Auxiliary Classifiers<br>
+                        4 .Efficient Grid Size Reduction<br>
+                        <br><br>
+                        <b>Train_loss: 1.1326 , Train_accuracy: 0.9507 <br>
+                        Validation_loss: 2.7040 , Validation_accuracy: 0.9152<br>
+                        </b>
+                        </p> 
+                        <img src="inception.png" id="im5">
+                    </div> 
+                </a> 
+            </div>  
+        </td>
+    </tr>
+    <tr width=100%>
+        <td width=100%>
+            <div id="d7">
+                <a name="vgg">
+                <h1 class="m1">VGG 16</h1>
+                <div id="d71">
+                    <p class="pm1">VGG16 is object detection and classification algorithm which is able to classify 1000 images of 1000 different categories with 92.7% accuracy. It is one of the popular algorithms for image classification and is easy to use with transfer learning. 
+                    <br><br>
+                    VGG16, as its name suggests, is a 16-layer deep neural network. VGG16 is thus a relatively extensive network with a total of 138 million parameters—it’s huge even by today’s standards. However, the simplicity of the VGGNet16 architecture is its main attraction. 
+                    <br><br>
+                    <b>Train_loss: 1.0985 , Train_accuracy: 0.3409 <br>
+                    Validation_loss: 1.0971 , Validation_accuracy: 0.3585<br>
+                    Validation_loss: 2.7040 , Validation_accuracy: 0.9152<br>
+                    </b>
+                    </p> 
+                    <img src="accuracy (1).png" id="im5">
+                </div>  
+                </a>
+            </div>  
+        </td>
+    </tr>
+    <tr width=100%>
+        <td width=100%>
+            <div id="d7">
+                <a name="res">
+                    <h1 class="m1">Resnet 50</h1>
+                    <div id="d71">
+                        <p class="pm1">ResNet is an artificial neural network that introduced a so-called “identity shortcut connection,” which allows the model to skip one or more layers. This approach makes it possible to train the network on thousands of layers without affecting performance.
+                            <br><br>
+                            It is a 50-layer convolutional neural network (48 convolutional layers, one MaxPool layer, and one average pool layer). Residual neural networks are a type of artificial neural network (ANN) that forms networks by stacking residual blocks.
+                            <br><br>
+                            <b>Train_loss: 0.8983 , Train_accuracy: 0.5356 <br>
+                            Validaation_loss: 0.9164 , Validation_accuracy: 0.4752<br>
+                            Test_loss: 0.9374 , Test_accuracy: 0.5110
+                            </b>
+                        </p> 
+                        <img src="resnet model (accuracy).png" id="im5">
+                    </div>  
+                </a>
+            </div> 
+        </td>
+    </tr> -->
+    <!-- <tr width=100%>
+        <td width=100%>
+        <a name="data">
+            <div id="d8">
+                <h1 id="head5">Dataset</h1>
+                <p id="pm1">For this project we have used public dataset for plant leaf disease detection called Plant Village.
+                The dataset consists of 87000 RGB images of healthy and unhealthy plant leaves having 38 classes out 
+                of which We have selected only 21 classes for experimentation of our model.
+                </p>
+                <img src="Picture1.png" id="im5">
+            </div>
+        </a>
+        </td>
+    </tr> -->
+    <!-- <tr>
+        <td>
+            <div id="d9">
+            <table border="2" id="t2" align="center">
+                <tr>
+                    <th>
+                        Plant
+                    </th>
+                    <th>
+                        Disease Name
+                    </th>
+                    <th>
+                        No. of Images
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Apple
+                    </td>
+                    <td>
+                        Healthy<br>
+                        Diseased Scab<br>
+                        Diseased: Black rot<br>
+                        Diseased: Cedar Apple Rust<br>
+                    </td>
+                    <td>
+                        2008<br>
+                        2016<br>
+                        1987<br>
+                        1760<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Corn
+                    </td>
+                    <td>
+                        Healthy<br>
+                        Diseased Cercospora Leaf Spot<br>
+                        Diseased: Common Rust<br>
+                        Diseased: Northern Leaf Blight<br>
+                    </td>
+                    <td>
+                        1859<br>
+                        1642<br>
+                        1907<br>
+                        1908<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Tomato
+                    </td>
+                    <td>
+                        Healthy<br>
+                        Diseased: Bacterial spot<br>
+                        Diseased: Early Blight<br>
+                        Diseased: Late Blight <br>
+                        Diseased: Leaf Mold<br>
+                        Diseased: Septoria Leaf Spot<br>
+                        Diseased: Two-Spotted spider mite<br>
+                        Diseased: Target Spot<br>
+                        Diseased: Yellow Leaf Curl Virus<br>
+                        Diseased: Tomato mosaic virus<br>
+                    </td>
+                    <td>
+                        1926<br>
+                        1702<br>
+                        1920<br>
+                        1851<br>
+                        1882<br>
+                        1745<br>
+                        1741<br>
+                        1827<br>
+                        1961<br>
+                        1790<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Potato
+                    </td>
+                    <td>
+                        Healthy<br>
+                        Diseased: Early Blight<br>
+                        Diseased: Late Blight<br>
+                    </td>
+                    <td>
+                        1824<br>
+                        1939<br>
+                        1939<br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </td>
+    </tr> -->
+    <!-- </div> -->
+</table>
+     <script type="text/javascript">
+        function cover(){
+            im=document.forms[0].elements[0].value;
+            di=document.getElementById("d51");
+            di.innerHTML="<img src='C:/Users/hp/Documents/Project/tomato-disease/training/PlantVillage/Apple__healthy/"+im.src+"'>";
+            //document.write("Hello");
+            //document.write("<img src='"+im+"' >"); 
+            //d=document.getElementById("cov");
+            //cov.src=im; 
+        }
+        function clear(){
+            di=document.getElementById("d52");
+            di.innerHTML=" "
+        }
+        /* function prediction(){
+        }
+        const form = document.querySelector('form');
+
+    form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData
+    });
+    console.log(await response.text());
+}); */
+    </script> 
+    </body>
+</html>
